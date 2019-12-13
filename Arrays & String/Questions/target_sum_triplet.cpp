@@ -28,7 +28,7 @@ int main() {
 
 	#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
-	freopen("outptut.txt", "w", stdout);
+	freopen("output.txt", "w", stdout);
 	#endif
 
 	int a[10001];
