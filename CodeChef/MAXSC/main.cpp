@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#define ll long long int 
 using namespace std;
 
 int main() {
@@ -8,22 +9,22 @@ int main() {
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	int t, sum = 0;
+	ll t, sum = 0;
 	cin>>t;
 	while(t--) {
-		int n;
+		ll n;
 		cin>>n;
-		int run = n;
+		ll run = n;
 		while(run--) {
 			// int *arr = new int[n];
-			int arr[n];
-			for(int i=0; i<n; i++) {
+			ll arr[n];
+			for(ll i=0; i<n; i++) {
 				cin>>arr[i];
 			}
 
 			//Logic
-			int cs, ms =0;
-			for(int i=0; i<n; i++) {
+			ll cs, ms =0;
+			for(ll i=0; i<n; i++) {
 				cs = arr[i];
 				ms = max(cs, ms);
 			}
