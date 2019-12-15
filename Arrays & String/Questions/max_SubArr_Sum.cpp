@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define ll long long int
+
 // int main() {
 
 // 	#ifndef ONLINE_JUDGE
@@ -70,31 +72,66 @@ using namespace std;
 // }
 
 //Kadane's Algorithm for max Sub Array Sum
+// int main() {
+
+// 		#ifndef ONLINE_JUDGE
+//  	freopen("input.txt", "r", stdin);
+//  	freopen("output.txt", "w", stdout);
+//  	#endif
+
+//  	ll a[1000001];
+// 	ll t;
+// 	cin>>t;
+
+// 	while(t--) {
+// 		ll n;
+// 		cin>>n;
+
+// 		for(ll i=0; i<n; i++) {
+// 			cin>>a[i];
+// 		}
+
+// 		//logic
+// 		ll cs = 0, ms = 0;
+// 		for(ll i=0; i<n; i++) {
+// 			cs = cs + a[i];
+// 			if(cs < 0) {
+// 				cs = 0;
+// 			}
+// 			ms = max(cs,ms);
+// 		}
+// 		cout<<ms<<endl;
+// 	}
+
+// 	return 0;
+// }
+
+//Kadane's Algorithm best implementation
 int main() {
 
 	#ifndef ONLINE_JUDGE
- 	freopen("input.txt", "r", stdin);
- 	freopen("output.txt", "w", stdout);
- 	#endif
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+	#endif
 
-	int a[1000];
-	int n;
-	cin>>n;
-	int cs,ms = 0;
+	ll a[1000001];
+	ll t;
+	cin>>t;
 
-	for(int i=0; i<n; i++) {
-		cin>>a[i];
-	}
-
-	//logic
-	for(int i=0; i<n; i++) {
-		cs = cs + a[i];
-		if(cs < 0) {
-			cs = 0;
+	while(t--) {
+		ll n;
+		cin>>n;
+		for(ll i=0; i<n; i++) {
+			cin>>a[i];
 		}
-		ms = max(cs,ms);
-	}
-	cout<<ms<<endl;
 
+		//Kadane's Algorithm 
+		ll best=0, sum=0;
+		for(ll i=0; i<n; i++) {
+			sum  = max(a[i], sum+a[i]);
+			best = max(best,sum);
+		}
+		cout<<best<<endl;
+	}
 	return 0;
 }
