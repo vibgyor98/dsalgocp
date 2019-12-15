@@ -114,24 +114,21 @@ int main() {
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	ll a[1000001];
-	ll t;
-	cin>>t;
+	ll a[1001];
+    ll t;
+    cin>>t;
+    while(t--) {
+        ll n;
+        cin>>n;
+        for(ll i=0; i<n; i++) {
+            cin>>a[i];
+        }
 
-	while(t--) {
-		ll n;
-		cin>>n;
-		for(ll i=0; i<n; i++) {
-			cin>>a[i];
-		}
-
-		//Kadane's Algorithm 
-		ll best=0, sum=0;
-		for(ll i=0; i<n; i++) {
-			sum  = max(a[i], sum+a[i]);
-			best = max(best,sum);
-		}
-		cout<<best<<endl;
-	}
+        ll best = 0, sum = 0;
+        for(ll k =0; k<n; k++) {
+            sum = max(a[k], sum+a[k]);
+            best = max(best,sum);
+        }cout<<best<<endl;
+    }
 	return 0;
 }
