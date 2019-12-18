@@ -3,3 +3,5 @@
 *.pdf
 /Notes
 Notes/
+*input
+*output

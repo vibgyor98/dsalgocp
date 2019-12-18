@@ -4,45 +4,32 @@ using namespace std;
 int main() {
 
 	#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+	freopen("input.txt.txt", "r", stdin);
+	freopen("output.txt.txt", "w", stdout);
 	#endif
 
 	
 	int t;
 	cin>>t;
+
 	while(t--) {
-		int N;
-		cin>>N;
-		int Q[N];
-		int S[N];
-
-		for(int i=0; i<N; i++) {
-			cin>>Q[i];
-			cin>>S[i];
-		}
-
-		int qno[8] = {1,2,3,4,5,6,7,8};
-		int freq[8] = {0,0,0,0,0,0,0,0};
-		// int sum=0;
-		for(int i=0; i<N; i++) {
-			if(Q[i]<9) {
-				for(int i=0; i<8; i++) {
-					if(Q[i]==qno[i]) {
-						freq[i] = freq[i] + 1;
-					}
-				}
+		int a[11] = {0};
+		int n;
+		cin>>n;
+		for(int i=0; i<n; i++) {
+			int q,si;
+			cin>>q>>si;
+			if(q<9 && a[q]<si) {
+				a[q] = si;
 			}
-			// cout<<sum<<" ";
 		}
-		// cout<<sum<<endl;
 
-		//Debug
-		for(int i=0; i<8; i++) {
-			cout<<freq[i]<<" ";
+		int sum = 0;
+		for(int i=0; i<9; i++) {
+			sum += a[i];
 		}
+		cout<<sum<<endl;
 	}
-
 
 
 	return 0;
