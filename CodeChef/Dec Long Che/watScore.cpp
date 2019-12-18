@@ -25,7 +25,7 @@ int main() {
 		}
 
 		int sum = 0;
-		for(int i=0; i<9; i++) {
+		for(int i=1; i<9; i++) {
 			sum += a[i];
 		}
 		cout<<sum<<endl;
