@@ -19,7 +19,7 @@ void spiral_AnticlockWise(int a[][10], int r, int c) {
 		//print start col
 		if(startCol < endCol) {
 			for(int i=startRow; i<=endRow; i++) {
-				cout<<a[i][startCol]<<", ";
+				cout<<a[i][startCol]<<" ";
 			}
 			startCol++;
 		}
@@ -27,20 +27,20 @@ void spiral_AnticlockWise(int a[][10], int r, int c) {
 		//print end row
 		if(endRow > startRow) {
 			for(int j=startCol; j<=endCol; j++) {
-				cout<<a[endRow][j]<<", ";
+				cout<<a[endRow][j]<<" ";
 			}
 			endRow--;
 		}
-
+		
 		//print end col
 		for(int i=endRow; i>=startRow; i--) {
-			cout<<a[i][endCol]<<", ";
+			cout<<a[i][endCol]<<" ";
 		}
 		endCol--;
 
 		//print start row
 		for(int j=endCol; j>=startCol; j--) {
-			cout<<a[startRow][j]<<", ";
+			cout<<a[startRow][j]<<" ";
 		}
 		startRow++;
 	}
@@ -96,8 +96,7 @@ int main() {
 
 	// spiral_Clockwise(a,r,c);
 	// cout<<endl;
-	spiral_AnticlockWise(a,r,c);
-	// cout<<"END";
+	spiral_AnticlockWise(a,r,c); 
 	
 	return 0;
 }
