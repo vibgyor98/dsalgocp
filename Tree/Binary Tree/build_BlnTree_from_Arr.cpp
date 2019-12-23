@@ -44,6 +44,17 @@ void bfs(node* root) {
 	return;
 }
 
+//print in inorder order
+void inorder(node *root) {
+	if(root==NULL) {
+		return;
+	}
+
+	inorder(root->left);
+	cout<<root->data<<" ";
+	inorder(root->right);
+}
+
 //buil balance tree from Array
 node* build_Balance_Tree(int *a, int s, int e) {
 
@@ -74,7 +85,8 @@ int main() {
 	}
 
 	node *root = build_Balance_Tree(a,0,size-1);
-	bfs(root);
+	// bfs(root);
+	inorder(root);
 
 	return 0;
 }

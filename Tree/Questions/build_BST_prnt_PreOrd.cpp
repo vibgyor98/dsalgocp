@@ -15,8 +15,7 @@ public:
 	}
 };
 
-void preorder(node* root) {
-
+void preorder(node *root) {
 	if(root==NULL) {
 		return;
 	}
@@ -26,30 +25,18 @@ void preorder(node* root) {
 	preorder(root->right);
 }
 
-node* insertInBst(node* root, int data) {
+//buil balance tree from Array
+node* build_Balance_Tree(int *a, int s, int e) {
 
-	if(root==NULL) {
-		return new node(data);
+	if(s>e) {
+		return NULL;
 	}
 
-	if(data <= root->data) {
-		root->left = insertInBst(root->left,data);
-	} else {
-		root->right = insertInBst(root->right,data);
-	}
-	return root;
-}
+	int mid = (s+e)/2;
+	node*root = new node(a[mid]);
+	root->left = build_Balance_Tree(a,s,mid-1);
+	root->right = build_Balance_Tree(a,mid+1,e);
 
-node* build() {
-	
-	int d;
-	cin>>d;
-
-	node* root = NULL;
-	while(d!=-1) {
-		root = insertInBst(root, d);
-		cin>>d;
-	}
 	return root;
 }
 
@@ -63,12 +50,16 @@ int main() {
 	int t;
 	cin>>t;
 	while(t--) {
-		int n;
-		cin>>n;
-		node* root = build();
+		int size;
+		cin>>size;
+		int a[size];
+		for(int i=0; i<size; i++) {
+			cin>>a[i];
+		}
+
+		node *root = build_Balance_Tree(a,0,size-1);
 		preorder(root);
 	}
-	
 
 	return 0;
 }

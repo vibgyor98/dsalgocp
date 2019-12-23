@@ -8,30 +8,23 @@ int main() {
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	int N;
+	int N,k,i,j;
 	cin>>N;
-	int a[N];
-	for(int i=0; i<N; i++) {
+	int a[N],b[N-1]={};
+	for(i=0; i<N; i++) {
 		cin>>a[i];
 	}
-	int n;
-	cin>>n;
+	cin>>k;
 	sort(a,a+N);
-
-	for(int i=0; i<N; i++) {
-		int j;
-		int temp = n;
-		for(j=1; j<=n; j++) {
-			if(a[i]==a[j]) {
-				temp--;
-			}
+	for(i=0; i<N-1; i++) {
+		for(j=i+1; j<N && a[i]==a[j]; j++) {
+			b[i]++;
 		}
-		if(temp==0) {
-			cout<<a[i]<<endl;
+		if(b[i]==k-1) {
+			cout<<a[i];
 			break;
 		}
 	}
-	
 
 	return 0;
 }
