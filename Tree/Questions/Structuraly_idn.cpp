@@ -3,28 +3,49 @@ using namespace std;
 
 class node {
 public:
-	string str;
+	int data;
 	node* left;
 	node* right;
 
-	node(string s) {
-		str = d;
+	node(int d) {
+		data = d;
 		left = NULL;
-		right = NULL:
+		right = NULL;
 	}
 };
 
-node* buildTree() {
-	string str;
-	cin>>str;
+node* buildTree(string s) {
+	if(s=="true") {
+		int d;
+		cin>>d;
+		node* root = new node(d);
 
-	if(str!='flase') {
-		node* root = new node(str);
-	} else {
-		root->left = buildTree();
-		root->right = buildTree();
+		string a;
+		cin>>a;
+		if(a=="true") {
+			root->left = buildTree(a);
+		}
+
+		cin>>a;
+		if(a=="true") {
+			root->left = buildTree(a);
+		}
+		return root;
 	}
-	return root;
+	return NULL;
+}
+
+bool check(node* root1, node* root2) {
+	if(root1==NULL && root2==NULL) {
+		return true;
+	}
+
+	if(root1!=NULL && root2!=NULL) {
+		bool left = check(root1->left,root2->right);
+		bool right = check(root1->left,root2->right);
+		return (root1 && root2);
+	}
+	return false;
 }
 
 int main() {
@@ -34,10 +55,10 @@ int main() {
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	node* root1 = buildTree();
-	node* root2 = buildTree();
+	node* root1 = buildTree("true");
+	node* root2 = buildTree("true");
 
-	if(root1==root2) {
+	if(check(root1,root2)) {
 		cout<<"true";
 	} else {
 		cout<<"false";
