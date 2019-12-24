@@ -30,6 +30,7 @@ node* buildTree() {
 	return root;
 }
 
+//Height of tree
 int height(node* root) {
 	if(root==NULL) {
 		return 0;
@@ -54,6 +55,7 @@ void print_Kthlevel(node* root, int k) {
 	return;
 }
 
+//Lvl order print
 void print_Level_order(node* root) {
 
 	int H = height(root);

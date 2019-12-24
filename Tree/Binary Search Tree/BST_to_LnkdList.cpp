@@ -110,6 +110,7 @@ void inorder(node* root) {
 	inorder(root->right);
 }
 
+//Inserting nodes in BST
 node* insertInBst(node* root, int data) {
 
 	if(root==NULL) {

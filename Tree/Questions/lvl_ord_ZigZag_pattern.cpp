@@ -2,61 +2,88 @@
 using namespace std;
 
 class node {
-public:
+	public:
+		int data;
+		node* left;
+		node* right;
 
-	int data;
-	node *left;
-	node *right;
-
-	node(int d) {
-		data = d;
-		left = NULL;
-		right = NULL;
-	}
+		node(int d) {
+			data = d;
+			left = NULL;
+			right = NULL;
+		}
 };
 
-node* buildTree() {
-	int d;
-	cin>>d;
+//Build Tree having string parameter
+node* buildTree(string s) {
 
-	if(d==-1) {
-		return NULL;
+	if(s=="true") {
+		int d;
+		cin>>d;
+		node* root = new node(d);
+
+		string l;
+		cin>>l;
+		if(l=="true") {
+			root->left = buildTree(l);
+		}
+
+		cin>>l;
+		if(l=="true") {
+			root->right = buildTree(l);
+		}
+		return root;
 	}
-
-	node *root = new node(d);
-	root -> left = buildTree();
-	root -> right = buildTree();
-
-	return root;
+	return NULL;
 }
 
-int height(node* root) {
-	if(root==NULL) {
-		return 0;
-	}
-
-	int ls = height(root->left);
-	int rs = height(root->right);
-	return max(ls,rs)+1;
-}
-
-//for printing particular Kth level
-void print_Kthlevel(node* root, int k) {
-
-	int H = height(root);
+//Zigzag traversal Lvl order using two stack approach
+void Zigzag(node* root) {
 
 	if(root==NULL) {
 		return;
 	}
-	
-	for(int i=1; i<=H; i++) {
-		if(i&1) {
-			print_Kthlevel(root->left, k-1);	
-		} else {
-			print_Kthlevel(root->right, k-1);
+
+	stack<node* > currentLevel;
+	stack<node* > nextLevel;
+
+	currentLevel.push(root);
+
+	//check if stack is empty
+	bool lft_to_rht = true;
+	while(!currentLevel.empty()) {
+		
+		//pop out of stack
+		node* temp = currentLevel.top();
+		currentLevel.pop();
+
+		//if not null
+		if(temp) {
+			cout<<temp->data<<" ";
+
+			//Store data acc to current order
+			if(lft_to_rht) {
+				if(temp->left) {
+					nextLevel.push(temp->left);
+				}
+				if(temp->right) {
+					nextLevel.push(temp->right);
+				}
+			} else {
+				if(temp->right) {
+					nextLevel.push(temp->right);
+				}
+				if(temp->left) {
+					nextLevel.push(temp->left);
+				}
+			}
+		}
+
+		if(currentLevel.empty()) {
+			lft_to_rht = !lft_to_rht;
+			swap(currentLevel,nextLevel);
 		}
 	}
-	return;
 }
 
 int main() {
@@ -66,9 +93,16 @@ int main() {
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	node *root = buildTree();
-	print_Level_order(root);
-	// print_Kthlevel(root,3);
+	node* root = buildTree("true");
+	Zigzag(root);
 
 	return 0;
 }
+
+
+
+//Input
+// 10 true 20 true 40 false false true 50 false false true 30 true 60 false false true 73 false false
+
+//OUTPUT
+// 10 30 20 40 50 60 73 
