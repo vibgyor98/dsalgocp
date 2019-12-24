@@ -28,7 +28,7 @@ node* buildTree(string s) {
 
 		cin>>a;
 		if(a=="true") {
-			root->left = buildTree(a);
+			root->right = buildTree(a);
 		}
 		return root;
 	}
@@ -41,9 +41,9 @@ bool check(node* root1, node* root2) {
 	}
 
 	if(root1!=NULL && root2!=NULL) {
-		bool left = check(root1->left,root2->right);
-		bool right = check(root1->left,root2->right);
-		return (root1 && root2);
+		bool left = check(root1->left,root2->left);
+		bool right = check(root1->right,root2->right);
+		return (left && right);
 	}
 	return false;
 }
@@ -70,5 +70,6 @@ int main() {
 
 
 
+//input
 // 10 true 20 true 40 false false true 50 false false true 30 true 60 false false true 73 false false
 // 10 true 20 true 40 false false true 50 false false true 30 true 60 false false true 73 false false

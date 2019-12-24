@@ -25,7 +25,7 @@ void preorder(node *root) {
 	preorder(root->right);
 }
 
-//buil balance tree from Array
+//build balance tree from Array
 node* build_Balance_Tree(int *a, int s, int e) {
 
 	if(s>e) {
