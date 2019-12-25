@@ -46,6 +46,7 @@ void spiral_AnticlockWise(int a[][10], int r, int c) {
 	}
 }
 
+// //Clock_wise
 // void spiral_Clockwise(int a[][10], int r, int c) {
 	
 // 	int start_row=0, end_row=r-1, start_col=0, end_col=c-1;

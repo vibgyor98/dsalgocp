@@ -12,19 +12,17 @@ int main() {
 	#endif
 
 	ll N, M;
-	set<ll> s;
-	cin>>N>>M;
-	for(ll i=0; i<N; i++) {
-		ll a;
-		cin>>a;
-		s.insert(a);
+	cin>>N;
+	cin>>M;
+
+	ll a[N];
+	for(int i=0; i<N; i++) {
+		cin>>a[i];
 	}
-	
-	if(s.size()<=M) {
-		cout<<s.size();
-	} else {
-		cout<<M;
-	}
+
+	sort(a,a+N);
+
+	solve()
 	
 	return 0;
 }
