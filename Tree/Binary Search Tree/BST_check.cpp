@@ -15,6 +15,7 @@ public:
 	}
 };
 
+//Insert in bst
 node* insertInBst(node* root, int data) {
 
 	if(root==NULL) {
