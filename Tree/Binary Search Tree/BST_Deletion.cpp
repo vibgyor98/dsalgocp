@@ -57,6 +57,7 @@ void inorder(node* root) {
 	inorder(root->right);
 }
 
+//Build BST
 node* insertInBst(node* root, int data) {
 
 	if(root==NULL) {
