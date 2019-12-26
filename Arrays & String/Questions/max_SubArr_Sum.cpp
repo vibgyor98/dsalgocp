@@ -27,7 +27,7 @@ using namespace std;
 // 		cs[i] = cs[i-1] + arr[i];
 // 	}
 
-// 	//Brute_force approach
+// 	// Brute_force approach
 // 	// for(int i=0; i<n; i++) {
 // 	// 	for(int j=i; j<n; j++) {
 
@@ -46,7 +46,7 @@ using namespace std;
 // 	// 	}
 // 	// }
 
-// 	//Cumulative Sum approach
+//Cumulative Sum approach
 // 	for(int i=0; i<n; i++) {
 // 		for(int j=i; j<n; j++) {
 
@@ -74,7 +74,7 @@ using namespace std;
 //Kadane's Algorithm for max Sub Array Sum
 // int main() {
 
-// 		#ifndef ONLINE_JUDGE
+// 	#ifndef ONLINE_JUDGE
 //  	freopen("input.txt", "r", stdin);
 //  	freopen("output.txt", "w", stdout);
 //  	#endif
