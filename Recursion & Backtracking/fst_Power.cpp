@@ -2,12 +2,13 @@
 using namespace std;
 
 int fstPow(int a, int b) {
+	if(b==0) return 1;
 
-	if(b==0) {
-		return 1;
-	} else {
-		return a*fstPow(a, b-1);
-	}
+	int ans = fstPow(a,b/2);
+	ans *= ans;
+	if(b&1) return a*ans;
+
+	return ans;
 }
 
 int main() {
