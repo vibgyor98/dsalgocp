@@ -1,10 +1,14 @@
 #include <iostream>
 using namespace std;
 
+#define ll long long int
+
+//Maximum it can handle power of 30 -> 2,30
+//Beyond that, use DP
 int fstPow(int a, int b) {
 	if(b==0) return 1;
 
-	int ans = fstPow(a,b/2);
+	ll ans = fstPow(a,b/2);
 	ans *= ans;
 	if(b&1) return a*ans;
 
