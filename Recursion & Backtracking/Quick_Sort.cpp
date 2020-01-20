@@ -1,5 +1,16 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
+
+//shuffle the idx
+void shuffle(int *a, int s, int e) {
+	srand(time(NULL));
+	for(int i=e; i>0; i--) {
+		int j=rand()%(i+1);
+		swap(a[i],a[j]);
+	}
+}
 
 int partition(int *a, int s, int e) {
 	int pivot=a[e];
@@ -42,6 +53,7 @@ int main() {
 		cin>>a[i];
 	}
 
+	shuffle(a,0,n-1);
 	quickSort(a,0,n-1);
 
 	for(int i=0; i<n; i++) {
