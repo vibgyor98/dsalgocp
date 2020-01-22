@@ -1,17 +1,14 @@
 #include <iostream>
-#include <vector>
-#include <string>
 using namespace std;
+
 int count=0;
-vector<string <char>> temp();
+
 void subsequences(char *in, char *out, int i, int j) {
 	//base 
 	if(in[i]=='\0') {
 		out[j]='\0';
-		// cout<<out<<", ";
-		string s=out;
-		temp.push_back(s);
 		count++;
+		cout<<out<<", ";
 		return;
 	}
 	//rec
@@ -35,9 +32,6 @@ int main() {
 	char out[100];
 
 	subsequences(in,out,0,0);
-	for(int i=count-1; i>=0; i--) {
-		cout<<temp[i]<<" ";
-	}
 	cout<<endl;
 	cout<<count;
 
