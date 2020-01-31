@@ -10,13 +10,14 @@ int main() {
 
 	int x1,v1,x2,v2;
 	cin>>x1>>v1>>x2>>v2;
-	if(v2>v1) cout<<"NO";
-	else if((x1<x2 && v1==v2) || (x1>x2 && v1==v2)) cout<<"NO";
-	else {
-		int t1=x1*v1;
-		int t2=x2*v2;
-		if((t1&1)&&(t2&1)) cout<<"NO";
-		else cout<<"YES";
+	if(x1<x2 && v2>v1) cout<<"NO";
+	if(x1<x2 && v1>v2) {
+		for(int i=x1,j=x2;;i+=v1,j+=v2) {
+			if(i%j==0) {
+				cout<<"YES";
+				break;
+			} else continue;
+		}
 	}
 
 	return 0;
