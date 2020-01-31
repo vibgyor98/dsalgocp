@@ -11,6 +11,7 @@ int main() {
 	int x1,v1,x2,v2;
 	cin>>x1>>v1>>x2>>v2;
 	if(v2>v1) cout<<"NO";
+	else if((x1<x2 && v1==v2) || (x1>x2 && v1==v2)) cout<<"NO";
 	else {
 		int t1=x1*v1;
 		int t2=x2*v2;
