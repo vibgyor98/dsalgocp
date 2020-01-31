@@ -10,15 +10,8 @@ int main() {
 
 	int x1,v1,x2,v2;
 	cin>>x1>>v1>>x2>>v2;
-	if(x1<x2 && v2>v1) cout<<"NO";
-	if(x1<x2 && v1>v2) {
-		for(int i=x1,j=x2;;i+=v1,j+=v2) {
-			if(i%j==0) {
-				cout<<"YES";
-				break;
-			} else continue;
-		}
-	}
+	if((x1-x2)%(v2-v1)==0) cout<<"YES";
+	else cout<<"NO";
 
 	return 0;
 }
