@@ -1,14 +1,20 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
-void duplicate(char *s, int len) {
+void find(char *s, int i) {
 	//base
-	if(l==0) {
+	if(i==strlen(s)) {
 		return;
 	}
-	//rec
-	if
-
+	//recursive
+	if(s[i]==s[i+1]) {
+		for(int j=strlen(s); j>i; j--) {
+			s[j]=s[j-1];
+		}
+		s[i+1]='*';
+	}
+	find(s,i+1);
 }
 
 int main() {
@@ -18,12 +24,11 @@ int main() {
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	char s[100];
-	cin>>s;
-	int l=s.length();
-	sort(s,s+l);
-	duplicate(s,l);
+	char in[2000];
+	cin>>in;
 
+	find(in,0);
+	cout<<in;
 
 	return 0;
 }
