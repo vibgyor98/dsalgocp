@@ -1,15 +1,20 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
 
+char output[1001];
+int k=0;
+
 void find(char *in, int i) {
-	if(i==strlen(in)) return;
-	if(in[i]==in[i+1]) {
-		for(int j=strlen(in); j>i; j--) {
-			in[j]=in[j-1];
-		}
+	if(in[i]=='\0') {
+		output[k]='\0';
+		return;
 	}
-	find(in,i+1);
+
+	int j=i;
+	output[k++]=in[i];
+	while(in[j] && in[j]==in[i]) j++;
+
+	find(in,j);
 }
 
 int main() {
@@ -23,7 +28,7 @@ int main() {
 	cin>>in;
 
 	find(in,0);
-	cout<<in;
+	cout<<output;
 
 	return 0;
 }
