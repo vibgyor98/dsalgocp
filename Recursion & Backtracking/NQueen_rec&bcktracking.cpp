@@ -39,12 +39,13 @@ bool solveNQueen(int board[][10], int i, int n) {
 				if(board[i][j]==1) {
 					cout<<"Q ";
 				} else {
-					cout<<"- ";
+					cout<<"* ";
 				}
 			}
 			cout<<endl;
 		}
-		return true;
+		cout<<endl<<endl;
+		return false;
 	}
 
 	//Recursive case
