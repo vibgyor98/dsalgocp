@@ -13,10 +13,20 @@ public:
 };
 
 //Insert at Head
-void insertAtHead(node* &head, int data) {
+void insertAtHead(node*&head, int data) {
 	node*n = new node(data);
 	n->next = head;
 	head = n;
+}
+
+//Insert at Middle
+void insertAtMiddle(node*&head, int data) {
+	//chk if the current head is null
+	if(head->data==NULL) {
+		insertAtHead(head,data);
+	}
+	//chk if the node lies in tail
+	
 }
 
 //print ll
