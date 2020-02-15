@@ -68,6 +68,50 @@ void insertAtMiddle(node*&head, int data, int p) {
 	}
 }
 
+//Delete operations
+
+//Delete at head
+void deleteAtHead(node*&head) {
+	if(head==NULL) {
+		return;
+	}
+	node*temp=head;
+	head=head->next;
+	delete temp;
+	return;
+}
+
+//Delete at tail
+void deleteAtTail(node*head) {
+	node*prev=NULL;
+	node*temp=head;
+	while(temp->next!=NULL) {
+		prev=temp;
+		temp=temp->next;
+	}
+	delete temp;
+	prev->next=NULL;
+	return;
+}
+
+//Delete at middle
+void deleteAtMiddle(node*&head, int p) {
+	if(head==NULL||p==0) return;
+	else if(p>length(head)) return;
+	else {
+		int jump=1;
+		node*temp=head;
+		node*prev=NULL;
+		while(jump<=p-1) {
+			prev=temp;
+			temp=temp->next;
+			jump+=1;
+		}
+		prev->next=temp->next;
+		delete temp;
+	}
+}
+
 //print ll
 void print(node*head) {
 	// node*temp = head;
@@ -92,6 +136,15 @@ int main() {
 	insertAtHead(head,3);
 	insertAtTail(head,6);
 	insertAtMiddle(head,2,3);
+
+	print(head);
+
+	deleteAtHead(head);
+	deleteAtTail(head);
+
+	print(head);
+
+	deleteAtMiddle(head,2);
 
 	print(head);
 
