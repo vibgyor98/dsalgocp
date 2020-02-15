@@ -36,7 +36,7 @@ void insertAtTail(node*&head, int data) {
 		return;
 	}
 	node*tail = head;
-	while(tail->next=NULL) {
+	while(tail->next!=NULL) {
 		tail=tail->next;
 	}
 	tail->next = new node(data);
@@ -46,7 +46,7 @@ void insertAtTail(node*&head, int data) {
 //Insert at Middle
 void insertAtMiddle(node*&head, int data, int p) {
 	//chk if the current head is null
-	if(head->data==NULL||p==0) {
+	if(head==NULL||p==0) {
 		insertAtHead(head,data);
 	}
 	//chk if the node lies in tail
