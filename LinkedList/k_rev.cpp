@@ -12,20 +12,22 @@ public:
 	}
 };
 
-node* rev(node*head, int k) {
+//reverve the kth group
+node*rev(node*head, int k) {
 	node*curr=head;
 	node*prev=NULL;
 	node*n;
 	int count=0;
+	if(head==NULL) return head;
 	while(curr!=NULL && count<k) {
 		n=curr->next;
 		curr->next=prev;
 		prev=curr;
 		curr=n;
-		count++;
+		++count;
 	}
-	if(next!=NULL) {
-		head->next=rev(next,k);
+	if(n!=NULL) {
+		head->next=rev(n,k);
 	}
 	return prev;
 }
@@ -71,7 +73,7 @@ int main() {
 
 	node*head = NULL;
 	buildList(head,N);
-	rev(head,k);
+	head=rev(head,k);
 	printList(head);
 
 
