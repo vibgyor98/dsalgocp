@@ -12,6 +12,24 @@ public:
 	}
 };
 
+node* rev(node*head, int k) {
+	node*curr=head;
+	node*prev=NULL;
+	node*n;
+	int count=0;
+	while(curr!=NULL && count<k) {
+		n=curr->next;
+		curr->next=prev;
+		prev=curr;
+		curr=n;
+		count++;
+	}
+	if(next!=NULL) {
+		head->next=rev(next,k);
+	}
+	return prev;
+}
+
 void insertAtTail(node*&head, int data) {
 	if(head==NULL) {
 		head = new node(data);
@@ -48,11 +66,12 @@ int main() {
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	int N;
-	cin>>N;
+	int N,k;
+	cin>>N>>k;
 
 	node*head = NULL;
 	buildList(head,N);
+	rev(head,k);
 	printList(head);
 
 
