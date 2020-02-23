@@ -13,19 +13,21 @@ public:
 };
 
 //pointing to the exact node form where partition should occur
-node*append(node*&head, int n, int k) {
-	node*curr=head;
-	node*prev=NULL;
-	int pos=n-k+1;
-	for(int i=1;i<=pos;i++) {
-		curr=curr->next;
-		prev=prev->next;
+node*append(node*&head, int k) {
+	node*oldhead=head;
+	node*fast=head;
+	node*slow=head;
+	for(int i=0; i<k && fast->next!=NULL; i++) {
+		fast=fast->next;
 	}
-	prev=NULL;
-
-	node*temp=curr;
-	temp=head;
-	return temp;
+	while(fast->next!=NULL && fast!=NULL) {
+		fast=fast->next;
+		slow=slow->next;
+	}
+	node*newhead=slow->next;
+	slow->next=NULL;
+	fast->next=oldhead;
+	return newhead;
 }
 
 void insertAtTail(node*&head, int data) {
@@ -71,9 +73,14 @@ int main() {
 	buildList(head,n);
 	int k;
 	cin>>k;
-	head=append(head,n,k);
-	printList(head);
-
+	//handling exception
+	k=k%n;
+	if(k==0) {
+		printList(head);
+	} else {
+		head=append(head,k);
+		printList(head);
+	}
 
 	return 0;
 }
