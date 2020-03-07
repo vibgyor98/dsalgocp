@@ -1,4 +1,5 @@
 #include <iostream>
+#include <set>
 #include <algorithm>
 #include <climits>
 using namespace std;
@@ -16,9 +17,13 @@ int main() {
 		int N,M;
 		cin>>N>>M;
 		int ftypes[N+1];
+		set<int> s;
 		int price[M+1];
 		for(int i=1; i<=N; i++) {
-			cin>>ftypes[i];
+			int ft;
+			cin>>ft;
+			s.insert(ft);
+			ftypes[i]=ft;
 		}
 		int sum[N+1] = {0};
 		int minimum = INT_MAX;
@@ -27,7 +32,7 @@ int main() {
 			sum[ftypes[i]] = sum[ftypes[i]]+price[i];
 			// cout<<sum[ftypes[i]]<<endl;
 		}	
-		for(int i=1; i<M; i++) {
+		for(int i=1; i<=s.size(); i++) {
 			minimum = min(minimum,sum[i]);
 			// cout<<sum[i]<<endl;
 		}
