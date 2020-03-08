@@ -1,7 +1,7 @@
 #include <iostream>
-#include <set>
 #include <algorithm>
 #include <climits>
+#include <set>
 using namespace std;
 
 int main() {
@@ -14,31 +14,39 @@ int main() {
 	int t;
 	cin>>t;
 	while(t--) {
+		int ftypes[50] = {0};
+		int fbaskt[50] = {0};
+		int fprice[50] = {0};
 		int N,M;
 		cin>>N>>M;
-		int ftypes[N+1];
 		set<int> s;
-		int price[M+1];
-		for(int i=1; i<=N; i++) {
+		for(int i=0; i<N; i++) {
 			int ft;
 			cin>>ft;
 			s.insert(ft);
+			// cin>>ftypes[i];
 			ftypes[i]=ft;
 		}
-		int sum[N+1] = {0};
-		int minimum = INT_MAX;
-		for(int i=1; i<=N; i++) {
-			cin>>price[i];
-			sum[ftypes[i]] = sum[ftypes[i]]+price[i];
-			// cout<<sum[ftypes[i]]<<endl;
-		}	
-		for(int i=1; i<=s.size(); i++) {
-			minimum = min(minimum,sum[i]);
-			// cout<<sum[i]<<endl;
+		int fsum[50] = {0};
+		for(int i=0; i<N; i++) {
+			cin>>fprice[i];
+			fsum[ftypes[i]] = fsum[ftypes[i]] + fprice[i];
+			fbaskt[ftypes[i]] = fsum[ftypes[i]];
 		}
-		cout<<minimum<<endl;
-	}
+		
+		int minimum = INT_MAX;
+		for(set<int>::iterator it=s.begin(); it!=s.end(); it++) {
+			int p=*it;
+			minimum = min(minimum,fbaskt[p]);
+		}
+		// int minimum = *min_element(fbaskt,fbaskt+N);
+		// for(set<int>::iterator it=s.begin(); it!=s.end(); ++it) {
+			// int p = *it;
 
+		// }
+		cout<<minimum<<"\n";
+		// cout<<"\n";
+	}
 
 	return 0;
 }
