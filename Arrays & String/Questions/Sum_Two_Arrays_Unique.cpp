@@ -3,15 +3,21 @@ using namespace std;
 
 void rough_add(int n, int *a1, int m, int *a2) {
 
-	int 1st_lst = n-1;
-	int 2nd_lst = m-1;
-
-	for(int i=1st_lst; i>=0; i--) {
-		
+	if(n>m) {
+		for(int i=ist_last; i>=0; i--) {
+			sum = a1[i] + a2[i];
+			if(sum%10)
+		}
 	}
 
+	int ist_last = n-1;
+	int ist_last = m-1;
+	int ans[1001];
+	int sum = 0;
+	int carry = 0;
+	for(int i=1st_lst; i>=0; i--) {
 
-
+	}
 }
 
 int main() {
@@ -33,7 +39,16 @@ int main() {
 	for(int i=0; i<m; i++)
 		cin>>a2[i];
 
-	add(n,a1,m.a2);
+	add(n,a1,m,a2);
 
 	return 0;
 }
+
+// input
+// 4
+// 1 0 2 9
+// 5
+// 3 4 5 6 7
+
+// output
+// 3, 5, 5, 9, 6, END
