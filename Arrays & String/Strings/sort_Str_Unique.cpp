@@ -28,16 +28,16 @@ int convertToInt(string s) {
 bool numericCompare(pair<string,string>s1, pair<string,string>s2) {
 	string key1,key2;
 	key1 = s1.second;
-	key2 = s1.second;
+	key2 = s2.second;
 
 	return convertToInt(key1) < convertToInt(key2);
 }
 
 //lexiographical compare
-bool numericCompare(pair<string,string>s1, pair<string,string>s2) {
+bool lexioCompare(pair<string,string>s1, pair<string,string>s2) {
 	string key1,key2;
 	key1 = s1.second;
-	key2 = s1.second;
+	key2 = s2.second;
 
 	return key1 < key2;
 }
@@ -71,14 +71,14 @@ int main() {
 	}
 
 	//check ordering
-	if(ordering == numeric) {
+	if(ordering == "numeric") {
 		sort(strpair, strpair+n, numericCompare);
 	} else {
 		sort(strpair, strpair+n, lexioCompare);
 	}
 
 	//check reversal
-	if(reversal == true) {
+	if(reversal == "true") {
 		for(int i=0; i<n/2; i++) {
 			swap(strpair[i], strpair[n - i - 1]);
 		}
@@ -86,7 +86,7 @@ int main() {
 
 	//print output
 	for(int i=0; i<n; i++) {
-		cout<<strpair[i].first<<" ";
+		cout<<strpair[i].first<<"\n";
 	}
 
 	return 0;
