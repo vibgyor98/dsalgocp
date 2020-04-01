@@ -1,14 +1,35 @@
 #include <iostream>
 using namespace std;
 
-#define ll long long
-
-ll factorial(ll n) {
-	int fact = 1;
-	for (int i = 1; i <= n; i++) {
-		fact = fact * i;
+void multiply(int *a, int &n, int no) {
+	int carry = 0;
+	for (int i = 0; i < n; i++) {
+		int prod = a[i] * no + carry;
+		a[i] = prod % 10;
+		carry = prod / 10;
 	}
-	return fact;
+
+	//left out carry
+	while (carry) {
+		a[n] = carry % 10;
+		carry /= 10;
+		n++;
+	}
+}
+
+void big_fact(int num) {
+	int *a = new int[1000] {};
+	a[0] = 1;
+	int n = 1;
+
+	for (int i = 1; i <= num; i++) {
+		multiply(a, n, i);
+	}
+
+	//print the digit in rev ord
+	for (int i = n - 1; i >= 0; i--) {
+		cout << a[i];
+	}
 }
 
 int main() {
@@ -18,11 +39,16 @@ int main() {
 	freopen("output.txt", "w", stdout);
 #endif
 
-	ll n;
+	int n;
 	cin >> n;
 
-	ll ans = factorial(n);
-	cout << ans;
+	big_fact(n);
 
 	return 0;
 }
+
+// input
+// 5
+
+// output
+// 120
