@@ -25,8 +25,7 @@ int main() {
 		s3 += x;
 	}
 
-	int ans = s1 + s2 + s3;
-	if (ans == 0) cout << "YES";
+	if ((s1 == 0 && s2 == 0) && s3 == 0) cout << "YES";
 	else cout << "NO";
 
 	return 0;
