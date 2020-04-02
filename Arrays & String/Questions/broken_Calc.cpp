@@ -19,8 +19,8 @@ void multiply(int *a, int &n, int no) {
 
 void big_fact(int num) {
 	int *a = new int[1000] {};
-	a[0] = 1;
-	int n = 1;
+	a[0] = 1; //factorial always multiply from 1
+	int n = 1;//arr idx of multiplication
 
 	for (int i = 1; i <= num; i++) {
 		multiply(a, n, i);
