@@ -11,21 +11,7 @@ int main() {
 
 	char a[100];
 	cin >> a;
-	int l = strlen(a);
 
-	sort(a, a + l);
-
-	char out[200];
-	int x = 0;
-	int y = 1;
-	int p = -1;
-	for (int i = 0; i < l; i++) {
-		if (a[i] == a[i + 1]) {
-			count++;
-		}
-		out[x] = a[i];
-		out[y] = count;
-	}
 
 	return 0;
 }
