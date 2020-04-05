@@ -9,15 +9,16 @@ int main() {
 #endif
 
     string s1, s2, s3 = "";
-    int i, j, t;
+    int t;
     cin >> t;
     while (t--) {
         cin >> s1 >> s2;
-        for (i = 0; i < s1.length(); i++) {
+        for (int i = 0; i < s1.length(); i++) {
             if (s1[i] == s2[i]) s3.append("0");
             else s3.append("1");
         }
         cout << s3 << endl;
+        s3 = "";
     }
     return 0;
 }

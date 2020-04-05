@@ -1,32 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include <algorithm>
 using namespace std;
-
-void countChar(string s) {
-	char out[200];
-	int l = s.length();
-
-	int count = 0;
-	int x = 0;
-	int y = 1;
-	for (int i = 0; i < l; i++) {
-		for (int j = i + 1; j < l; j++) {
-			if (s[i] == s[j]) {
-				count++;
-			}
-		}
-		out[x] = s[i];
-		out[y] = count;
-		count = 0;
-		x += 2;
-		y += 2;
-	}
-
-	for (int i = 0; i < y; i++) {
-		cout << out[i];
-	}
-}
 
 int main() {
 
@@ -35,10 +9,23 @@ int main() {
 	freopen("output.txt", "w", stdout);
 #endif
 
-	string s;
-	cin >> s;
+	char a[100];
+	cin >> a;
+	int l = strlen(a);
 
-	countChar(s);
+	sort(a, a + l);
+
+	char out[200];
+	int x = 0;
+	int y = 1;
+	int p = -1;
+	for (int i = 0; i < l; i++) {
+		if (a[i] == a[i + 1]) {
+			count++;
+		}
+		out[x] = a[i];
+		out[y] = count;
+	}
 
 	return 0;
 }
