@@ -10,19 +10,19 @@ int main() {
 
 	int n;
 	cin >> n;
-	int a[n][n];
+	int a[n][3];
 	int s = 0;
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < 3; j++) {
 			cin >> a[i][j];
 		}
 	}
 
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < 3; j++) {
 			s += a[j][i];
 		}
-		cout << s << "\n";
+		// cout << s << "\n";
 		if (s != 0) {
 			cout << "NO";
 			break;
