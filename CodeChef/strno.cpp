@@ -4,19 +4,7 @@ using namespace std;
 
 #define ll long long
 
-// void primeSieve(ll *p, ll n) {
-// 	for (ll i = 3; i <= n; i += 2) p[i] = 1;
-// 	for (ll i = 3; i <= n; i += 2) {
-// 		if (p[i] == 1) {
-// 			for (ll j = i * i; j <= n; j += i) {
-// 				p[j] = 0;
-// 			}
-// 		}
-// 	}
-// 	p[2] = 1;
-// 	p[1] = p[0] = 0;
-// }
-
+// prime factors
 ll primeFactors(ll x) {
 	ll count = 0;
 	while (x % 2 == 0) {
@@ -56,3 +44,25 @@ int main() {
 
 	return 0;
 }
+
+/*
+Explanation:
+The guard gave Varsha two integers X and K.
+Varsha needs to determine whether there is an
+integer A such that it has exactly X positive integer
+divisors and exactly K of them are prime numbers.
+
+Constraints
+
+1≤T≤10^3
+1≤X,K≤10^9
+
+input
+
+1
+4 2
+
+output
+
+1
+*/
