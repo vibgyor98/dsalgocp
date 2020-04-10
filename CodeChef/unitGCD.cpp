@@ -9,7 +9,7 @@ using namespace std;
 
 void solve(ll n) {
 	if (n == 1) {
-		cout << "1" << " 1" << "\n";
+		cout << "1" << "\n" << "1" << "\n";
 	} else {
 		cout << n / 2 << "\n";
 		if (n % 2 == 0) {
